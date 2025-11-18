@@ -2,7 +2,7 @@
 #define KONTAINER_H
 
 #include <iostream>
-#include <vector> // Penggunaan STL: std::vector
+#include <vector> 
 #include <string>
 #include "Exception.h" 
 
@@ -25,7 +25,6 @@ public:
 
     T ambil() {
         if (inventori.empty()) {
-            // Melemparkan exception kustom
             throw StokHabisException("Kontainer " + namaKontainer + " kosong.");
         }
         
@@ -40,4 +39,4 @@ public:
     }
 };
 
-#endif // KONTAINER_H
+#endif 

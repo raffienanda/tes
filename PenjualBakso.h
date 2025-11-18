@@ -13,14 +13,12 @@
 class PenjualBakso {
 private:
     std::string nama;
-    // Menggunakan Kontainer<BaksoSiapJual>
     Kontainer<BaksoSiapJual>& stokBakso; 
 
 public:
     PenjualBakso(std::string n, Kontainer<BaksoSiapJual>& stok) : 
         nama(n), stokBakso(stok) {}
 
-    // Fungsi Jual dengan exception handling
     void jualBakso(int jumlah) {
         std::cout << "\n=== Proses Penjualan oleh " << nama << " ===" << std::endl;
         std::cout << "   Stok Bakso Awal: " << stokBakso.getStok() << std::endl;
@@ -28,13 +26,12 @@ public:
 
         try {
             for (int i = 0; i < jumlah; ++i) {
-                stokBakso.ambil(); // Potensi throw StokHabisException
+                stokBakso.ambil();
                 berhasilJual++;
             }
             std::cout << "   [SUKSES] Berhasil menjual " << jumlah << " buah bakso." << std::endl;
 
         } catch (const StokHabisException& e) {
-            // Menangkap exception kustom dari kelas template Kontainer
             std::cerr << "   [Gagal Jual!] " << e.what() << std::endl;
             std::cout << "   Hanya berhasil menjual " << berhasilJual << " buah bakso." << std::endl;
             
@@ -46,4 +43,4 @@ public:
     }
 };
 
-#endif // PENJUALBAKSO_H
+#endif 

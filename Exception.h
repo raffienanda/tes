@@ -13,4 +13,4 @@ public:
         std::runtime_error("ERROR STOK HABIS: " + msg) {}
 };
 
-#endif // EXCEPTION_H
+#endif 

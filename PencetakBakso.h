@@ -5,7 +5,7 @@
 #include <string>
 #include "Adonan.h"
 #include "Kontainer.h"
-#include "Produk.h" // Untuk BaksoSiapJual
+#include "Produk.h" 
 
 /**
  * @brief Kelas yang bertanggung jawab mengubah Adonan menjadi Bakso.
@@ -18,16 +18,13 @@ private:
 public:
     PencetakBakso(std::string nama) : namaPencetak(nama) {}
 
-    // Fungsi ini mengakses anggota private Adonan
     void cetak(Adonan& adonan, Kontainer<BaksoSiapJual>& kontainerBakso) {
         std::cout << "\n=== Proses Pencetakan oleh " << namaPencetak << " ===" << std::endl;
-        // Akses anggota private
         std::cout << "   Stok Adonan saat ini (friend access): " << adonan.jumlahAdonanKg << " Kg." << std::endl;
 
         if (adonan.jumlahAdonanKg >= 1) {
-            adonan.jumlahAdonanKg -= 1; // Memodifikasi anggota private Adonan
+            adonan.jumlahAdonanKg -= 1;
 
-            // Hardcode: 1 Kg Adonan menghasilkan 10 Bakso
             for (int i = 0; i < 10; ++i) {
                 kontainerBakso.tambah(BaksoSiapJual("Bakso Premium", 100));
             }
@@ -40,4 +37,4 @@ public:
     }
 };
 
-#endif // PENCETAKBAKSO_H
+#endif 
